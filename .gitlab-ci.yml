@@ -1,5 +1,6 @@
 stages:
   - build
+  - publish
 
 variables:
   GIT_SUBMODULE_STRATEGY: recursive
@@ -10,7 +11,16 @@ build:
   script:
     - npm install
     - ./node_modules/.bin/ng build
+    - zip dsc-gui.zip -r dist/DSC/*
 
   artifacts:
     paths:
       - ./dist/DSC
+
+publish:
+    image: inetprocess/gitlab-release
+    stage: publish
+    only:
+        - tags
+    script:
+        - gitlab-release --message 'DSC-GUI-$CI_BUILD_TAG' dsc-gui-$CI_BUILD_TAG.zip
