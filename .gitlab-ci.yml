@@ -1,6 +1,6 @@
 stages:
   - build
-  - publish
+  - package
 
 variables:
   GIT_SUBMODULE_STRATEGY: recursive
@@ -12,7 +12,10 @@ build:
     - npm install
     - ./node_modules/.bin/ng build
 
+package:
+  stage: package
+  script:
+    - tar cJf dsc.tar.xz -C dist/DSC/ .
   artifacts:
     paths:
-      - ./dist/DSC
-
+      - ./dsc.tar.xz
