@@ -10,7 +10,7 @@ build:
   script:
     - npm install
     - ./node_modules/.bin/ng build
-    - tar cJf dsc.tar.xz -C dist/DSC/ .
+    - tar cJf dsc-frontend.tar.xz -C dist/DSC/ .
   artifacts:
     paths:
-      - ./dsc.tar.xz
+      - ./dsc-frontend.tar.xz
