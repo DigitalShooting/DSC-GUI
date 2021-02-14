@@ -1,13 +1,14 @@
 stages:
   - build
 
+variables:
+  GIT_SUBMODULE_STRATEGY: recursive
+
 build:
   stage: build
   image: node:13
   script:
     - npm install
-    - git submodule init
-    - git submodule update
     - ./node_modules/.bin/ng build
 
   artifacts:
