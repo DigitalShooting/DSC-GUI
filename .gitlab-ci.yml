@@ -1,15 +1,16 @@
 stages:
   - build
 
+variables:
+  GIT_SUBMODULE_STRATEGY: recursive
+
 build:
   stage: build
   image: node:13
   script:
     - npm install
-    - git submodule init
-    - git submodule update
-    - ./node_modules/.bin/ng build
-
+    - ./node_modules/.bin/ng build --prod
+    - tar cJf dsc-frontend.tar.xz -C dist/DSC/ .
   artifacts:
     paths:
-      - ./dist/DSC
+      - ./dsc-frontend.tar.xz
