@@ -5,11 +5,11 @@
 export const environment = {
   production: false,
   serverURL: (location) => "http://10.1.0.172:3000",
-  
+
   // serverURL: (location) => {
   //   return "http://" + location.host + "/";
   // },
-  
+
   // serverURL: "ws://10.1.0.125:3009",
   // serverURL: "ws://10.1.0.134:3008",
   // serverURL: "ws://10.1.0.125/socket/",
