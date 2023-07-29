@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  serverURL: (location) => "http://10.1.0.80:3000",
+  serverURL: (location) => "http://10.1.0.172:3000",
   
   // serverURL: (location) => {
   //   return "http://" + location.host + "/";
